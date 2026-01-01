@@ -14,20 +14,34 @@ def main():
     # servo driver to the servo motors.
     pca.frequency = 50
 
-    move_pointer_finger(pca, 0, 180) # Move pointer finger down 180 degrees.
+    move_pointer_finger(pca, 0, 101) # Move pointer finger down 180 degrees.
+    move_middle_finger(pca, 1, 180)
 
 # Moves the pointer finger 180 degrees down, pauses for 2 seconds, then moves 
 # back up 0 degrees.
 def move_pointer_finger(pca, channel, angle):
-    servo1 = servo.Servo(pca.channels[channel]) # Sets servo1 to channel 0 on servo driver.
+    # Sets servo1 to channel 0 on servo driver and defines min and max pulse width paramenters.
+    servo1 = servo.Servo(pca.channels[channel], min_pulse=650, max_pulse=2650)
 
-    print("Moving 180 degrees down.")
-    servo1.angle = angle
+    print("Set to vertical position")
+    servo1.angle = angle   
     
-    print("Pausing for 2 seconds.")
+    print("move 180 degrees down and pause for 2 seconds.")
+    servo1.angle = 180
     time.sleep(2)
+    
     print("Moving back up to 0 degrees.")
-    servo1.angle = 0 
+    servo1.angle = angle  
+
+def move_middle_finger(pca, channel, angle):
+    servo2 = servo.Servo(pca.channels[channel], min_pulse=650, max_pulse=2400)
+
+    print("Move middle finger 180 degrees down and pause for 2 seconds.")
+    servo2.angle = angle
+    time.sleep(2)
+
+    print("Move back up to vertical position 0 degrees.")
+    servo2.angle = 0
 
 if __name__ == "__main__":
     main()
