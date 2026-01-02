@@ -14,8 +14,11 @@ def main():
     # servo driver to the servo motors.
     pca.frequency = 50
 
-    move_pointer_finger(pca, 0, 101) # Move pointer finger down 180 degrees.
+    move_pointer_finger(pca, 0, 90) # Move pointer finger down 180 degrees.
     move_middle_finger(pca, 1, 180)
+    move_ring_finger(pca, 3, 101)
+    move_pinky_finger(pca, 4, 0)
+    move_thumb_finger(pca, 2, 90)
 
 # Moves the pointer finger 180 degrees down, pauses for 2 seconds, then moves 
 # back up 0 degrees.
@@ -23,14 +26,14 @@ def move_pointer_finger(pca, channel, angle):
     # Sets servo1 to channel 0 on servo driver and defines min and max pulse width paramenters.
     servo1 = servo.Servo(pca.channels[channel], min_pulse=650, max_pulse=2650)
 
-    print("Set to vertical position")
+    print("Set pointer finger to vertical position")
     servo1.angle = angle   
     
-    print("move 180 degrees down and pause for 2 seconds.")
+    print("move pointer finger 180 degrees down and pause for 2 seconds.")
     servo1.angle = 180
     time.sleep(2)
     
-    print("Moving back up to 0 degrees.")
+    print("Moving pointer finger back up to 0 degrees.")
     servo1.angle = angle  
 
 def move_middle_finger(pca, channel, angle):
@@ -40,8 +43,46 @@ def move_middle_finger(pca, channel, angle):
     servo2.angle = angle
     time.sleep(2)
 
-    print("Move back up to vertical position 0 degrees.")
+    print("Move middle finger back up to vertical position 0 degrees.")
     servo2.angle = 0
 
+def move_ring_finger(pca, channel, angle):
+    servo3 = servo.Servo(pca.channels[channel], min_pulse=500, max_pulse=2500)
+
+    print("Move ring finger to vertical position")
+    servo3.angle = angle
+
+    print("Move ring finger 180 degrees down and pause for 2 seconds.")
+    servo3.angle = 180
+    time.sleep(2)
+
+    print("Move ring finger back up vertical position.")
+    servo3.angle = angle
+
+def move_pinky_finger(pca, channel, angle):
+    servo4 = servo.Servo(pca.channels[channel], min_pulse=500, max_pulse=2500)
+
+    print("Move pinky finger to vertical position")
+    servo4.angle = 90
+
+    print("Move pinky finger 180 degrees down and pause for 2 seconds.")
+    servo4.angle = angle
+    time.sleep(2)
+
+    print("Move pinky finger back up to vertical position.")
+    servo4.angle = 90
+
+def move_thumb_finger(pca, channel, angle):
+    servo5 = servo.Servo(pca.channels[channel], min_pulse=750, max_pulse=2650)
+
+    print("Move thumb to vertical position")
+    servo5.angle = angle
+
+    print("Move thumb down 180 degrees and pause for 2 seconds.")
+    servo5.angle = 180
+    time.sleep(2)
+
+    print("Move thumb back up to vertical angle.")
+    servo5.angle = angle
 if __name__ == "__main__":
     main()
