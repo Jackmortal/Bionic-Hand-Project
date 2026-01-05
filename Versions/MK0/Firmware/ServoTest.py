@@ -47,7 +47,7 @@ def move_middle_finger(pca, channel, angle):
     servo2.angle = 0
 
 def move_ring_finger(pca, channel, angle):
-    servo3 = servo.Servo(pca.channels[channel], min_pulse=500, max_pulse=2500)
+    servo3 = servo.Servo(pca.channels[channel], min_pulse=400, max_pulse=2850)
 
     print("Move ring finger to vertical position")
     servo3.angle = angle
@@ -60,7 +60,7 @@ def move_ring_finger(pca, channel, angle):
     servo3.angle = angle
 
 def move_pinky_finger(pca, channel, angle):
-    servo4 = servo.Servo(pca.channels[channel], min_pulse=500, max_pulse=2500)
+    servo4 = servo.Servo(pca.channels[channel], min_pulse=400, max_pulse=2500)
 
     print("Move pinky finger to vertical position")
     servo4.angle = 90
