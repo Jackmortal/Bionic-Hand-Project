@@ -4,18 +4,21 @@ This README contains the firmware for MK0 of my Bionic Hand Project. Below are b
 
 - **ServoTest.py** - Code to test each finger on the hand. This code allows you to test each fingers range of motion from 0 to any degree your servo is limited to.
 
-# Start now:
-- **Hand_Fist.py** - 
-- **Hand_Open.py** - 
+## Roadmap
 
-#Next:
-- **Hand_MiddleFinger** -
-- **Hand_Point.py** - 
-- **Hand_Peace.py** -
+### Step 1 - Gestures
+Create `gestures.py` containing these hand gestures:
+- close_hand
+- open_hand
+- peace_sign
+- thumbs_up
+- pointing
+- rock_on
 
-#Then:
-- 'Add a way to trigger gestures (keyboard or button)'
-- 'Add object detection (attach camera module to palm of hand)'
+Create a `main.py` alongside it to bind keyboard keys to each gesture.
 
-#Long term goal:
-- 'Add machine learning capabilities'
+### Step 2 - Computer Vision
+Implement OpenCV to capture my hand gestures from a camera feed.
+
+### Step 3 - Gesture Recognition
+Implement TensorFlow Lite to identify captured gestures and run the gestures automatically on the hand without keyboard input.
