@@ -4,8 +4,8 @@ import time # sleep.
 from adafruit_pca9685 import PCA9685 # Servo Driver Library.
 from adafruit_motor import servo # Angle control.
 
-MIN_PULSE: 500
-MAX_PULSE: 2500
+MIN_PULSE = 500
+MAX_PULSE = 2500
 
 def main():
     # Initialize I2C and PCA9685 driver.
@@ -20,11 +20,11 @@ def main():
 
 def finger_channels(driver):
     fingers = {
-        "pointer": servo.Servo(driver.channel[0], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
-        "middle": servo.Servo(driver.channel[1], min_pulse = MIN_PULSE,  max_pulse = MAX_PULSE)
-        "ring": servo.Servo(driver.channel[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
-        "pinky": servo.Servo(driver.channel[3], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
-        "thumb": servo.Servo(driver.channel[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
+        "pointer": servo.Servo(driver.channels[0], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
+        "middle": servo.Servo(driver.channels[1], min_pulse = MIN_PULSE,  max_pulse = MAX_PULSE),
+        "ring": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
+        "pinky": servo.Servo(driver.channels[3], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
+        "thumb": servo.Servo(driver.channels[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
     }
     return fingers
 
@@ -35,3 +35,6 @@ def close_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
+
+if __name__ == "__main__": 
+    main()
