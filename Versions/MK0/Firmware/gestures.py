@@ -35,6 +35,7 @@ def close_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
+        time.sleep(0.05)
 
 if __name__ == "__main__": 
     main()
