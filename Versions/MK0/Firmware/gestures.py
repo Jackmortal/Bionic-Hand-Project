@@ -31,6 +31,8 @@ def finger_channels(driver):
     return fingers
 
 def close_hand(servos):
+    global current_state
+
     if current_state != "closed":
         for x in range(0, 162, 2):
             servos["pointer"].angle = x
@@ -40,9 +42,11 @@ def close_hand(servos):
             servos["thumb"].angle = x
             time.sleep(0.02)
 
-    current_state == "closed"
+    current_state = "closed"
 
 def open_hand(servos):
+    global current_state
+
     if current_state != "open":
         for x in range(160, -2, -2):
             servos["pointer"].angle = x
@@ -52,9 +56,11 @@ def open_hand(servos):
             servos["thumb"].angle = x
             time.sleep(0.02)
 
-    current_state == "open"
+    current_state = "open"
 
 def peace_sign(servos):
+    global current_state
+
     # Closes the ring, pinky, and thumb.
     if current_state == "open":
         for x in range(0, 162, 2):
@@ -70,7 +76,7 @@ def peace_sign(servos):
             servos["middle"].angle = x
             time.sleep(0.02)
 
-    current_state == "peace"
+    current_state = "peace"
 
 #def thumbs_up(servos):
 
