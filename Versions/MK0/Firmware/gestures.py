@@ -29,22 +29,22 @@ def finger_channels(driver):
     return fingers
 
 def close_hand(servos):
-    for x in range(20, 140, 20):
+    for x in range(20, 180, 20):
         servos["pointer"].angle = x
         servos["middle"].angle = x
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(0.05)
+        time.sleep(10)
 
 def open_hand(servos):
-    for x in range(140, 0, 20):
+    for x in range(180, 0, 20):
         servos["pointer"].angle = x
         servos["middle"].angle = x
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(0.05)
+        time.sleep(10)
 
 if __name__ == "__main__": 
     main()
