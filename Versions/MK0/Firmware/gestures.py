@@ -34,7 +34,7 @@ def close_hand(servos):
     global current_state
 
     if current_state == "peace":
-        for x in range(0, 162, -2):
+        for x in range(0, 162, 2):
             servos["pointer"].angle = x
             servos["middle"].angle = x
             time.sleep(0.02)
