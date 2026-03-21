@@ -46,7 +46,19 @@ def open_hand(servos):
         servos["thumb"].angle = x
         time.sleep(0.02)
 
-#def peace_sign(servos):
+def peace_sign(servos):
+    # Closes the ring, pinky, and thumb.
+    for x in range(0, 162, 2):
+        servos["ring"].angle = x
+        servos["pinky"].angle = x
+        servos["thumb"].angle = x
+        time.sleep(0.02)
+
+    # Opens the pointer and middle fingers.
+    for x in range(162, -2, -2):
+        servos["pointer"].angle = x
+        servos["middle"].angle = x
+        time.sleep(0.02)
 
 #def thumbs_up(servos):
 
