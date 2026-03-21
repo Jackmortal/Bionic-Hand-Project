@@ -7,6 +7,8 @@ from adafruit_motor import servo # Angle control.
 MIN_PULSE = 500
 MAX_PULSE = 2500
 
+current_state = "open"
+
 def setup():
     # Initialize I2C and PCA9685 driver.
     i2c = busio.I2C(board.SCL, board.SDA)
@@ -29,36 +31,46 @@ def finger_channels(driver):
     return fingers
 
 def close_hand(servos):
-    for x in range(0, 162, 2):
-        servos["pointer"].angle = x
-        servos["middle"].angle = x
-        servos["ring"].angle = x
-        servos["pinky"].angle = x
-        servos["thumb"].angle = x
-        time.sleep(0.02)
+    if current_state != "closed":
+        for x in range(0, 162, 2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+
+    current_state == "closed"
 
 def open_hand(servos):
-    for x in range(160, -2, -2):
-        servos["pointer"].angle = x
-        servos["middle"].angle = x
-        servos["ring"].angle = x
-        servos["pinky"].angle = x
-        servos["thumb"].angle = x
-        time.sleep(0.02)
+    if current_state != "open":
+        for x in range(160, -2, -2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+
+    current_state == "open"
 
 def peace_sign(servos):
     # Closes the ring, pinky, and thumb.
-    for x in range(0, 162, 2):
-        servos["ring"].angle = x
-        servos["pinky"].angle = x
-        servos["thumb"].angle = x
-        time.sleep(0.02)
-
+    if current_state == "open":
+        for x in range(0, 162, 2):
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+    
     # Opens the pointer and middle fingers.
-    for x in range(162, -2, -2):
-        servos["pointer"].angle = x
-        servos["middle"].angle = x
-        time.sleep(0.02)
+    if current_state == "closed":
+        for x in range(162, -2, -2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            time.sleep(0.02)
+
+    current_state == "peace"
 
 #def thumbs_up(servos):
 
