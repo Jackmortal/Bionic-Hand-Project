@@ -5,7 +5,8 @@ def main():
 
     while True:
         print("Enter a keybind: \n")
-        print("Close Hand = a, Open Hand = b, Peace Sign = c, Exit = x")
+        print("Close Hand = a, Open Hand = b, Peace Sign = c, Thumbs up = d," 
+              "Exit = x")
         button = input()
         if button == 'a':
             close_hand(servos)
