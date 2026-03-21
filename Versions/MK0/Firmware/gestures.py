@@ -17,6 +17,7 @@ def main():
     servos = finger_channels(driver)
 
     close_hand(servos)
+    open_hand(servos)
 
 def finger_channels(driver):
     fingers = {
@@ -35,7 +36,7 @@ def close_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(0.10)
+        time.sleep(0.5)
 
 def open_hand(servos):
     for x in range(180, 0, 20):
@@ -44,7 +45,7 @@ def open_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(0.10)
+        time.sleep(0.5)
 
 if __name__ == "__main__": 
     main()
