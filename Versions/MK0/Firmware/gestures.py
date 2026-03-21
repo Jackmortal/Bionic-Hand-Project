@@ -7,7 +7,7 @@ from adafruit_motor import servo # Angle control.
 MIN_PULSE = 500
 MAX_PULSE = 2500
 
-def main():
+def setup():
     # Initialize I2C and PCA9685 driver.
     i2c = busio.I2C(board.SCL, board.SDA)
     driver = PCA9685(i2c)
@@ -16,8 +16,7 @@ def main():
 
     servos = finger_channels(driver)
 
-    close_hand(servos)
-    open_hand(servos)
+    return servos
 
 def finger_channels(driver):
     fingers = {
@@ -47,5 +46,10 @@ def open_hand(servos):
         servos["thumb"].angle = x
         time.sleep(0.02)
 
-if __name__ == "__main__": 
-    main()
+#def peace_sign(servos):
+
+#def thumbs_up(servos):
+
+#def pointing(servos):
+
+#def rock_on(servos):
