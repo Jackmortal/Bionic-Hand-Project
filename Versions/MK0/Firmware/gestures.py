@@ -22,9 +22,9 @@ def finger_channels(driver):
     fingers = {
         "pointer": servo.Servo(driver.channels[0], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
         "middle": servo.Servo(driver.channels[1], min_pulse = MIN_PULSE,  max_pulse = MAX_PULSE),
-        "ring": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
+        "ring": servo.Servo(driver.channels[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
         "pinky": servo.Servo(driver.channels[3], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
-        "thumb": servo.Servo(driver.channels[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
+        "thumb": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
     }
     return fingers
 
@@ -35,7 +35,7 @@ def close_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(10)
+        time.sleep(0.10)
 
 def open_hand(servos):
     for x in range(180, 0, 20):
@@ -44,7 +44,7 @@ def open_hand(servos):
         servos["ring"].angle = x
         servos["pinky"].angle = x
         servos["thumb"].angle = x
-        time.sleep(10)
+        time.sleep(0.10)
 
 if __name__ == "__main__": 
     main()
