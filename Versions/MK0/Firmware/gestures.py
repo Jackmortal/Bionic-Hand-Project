@@ -38,7 +38,13 @@ def close_hand(servos):
         time.sleep(0.05)
 
 def open_hand(servos):
-    
+    for x in range(140, 0, 20):
+        servos["pointer"].angle = x
+        servos["middle"].angle = x
+        servos["ring"].angle = x
+        servos["pinky"].angle = x
+        servos["thumb"].angle = x
+        time.sleep(0.05)
 
 if __name__ == "__main__": 
     main()
