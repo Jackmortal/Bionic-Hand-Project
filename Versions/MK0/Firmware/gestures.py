@@ -92,7 +92,32 @@ def peace_sign(servos):
 
     current_state = "peace"
 
-#def thumbs_up(servos):
+def thumbs_up(servos):
+    global current_state
+
+    # If hand is in peace gesture then lower pointer and middle while raising 
+    # the thumb.
+    if current_state == "peace":
+        for x in range(0, 162, 2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            servos["thumb"].angle = 160 - x
+            time.sleep(0.02)
+
+    elif current_state == "closed":
+        for x in range(162, -2, -2):
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+
+    elif current_state == "open":
+        for x in range(0, 162, 2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            time.sleep(0.02)
+
+    current_state = "thumb"
 
 #def pointing(servos):
 
