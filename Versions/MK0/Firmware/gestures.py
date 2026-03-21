@@ -33,7 +33,14 @@ def finger_channels(driver):
 def close_hand(servos):
     global current_state
 
-    if current_state != "closed":
+    if current_state == "peace":
+        for x in range(162, -2, -2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            time.sleep(0.02)
+
+
+    elif current_state != "closed":
         for x in range(0, 162, 2):
             servos["pointer"].angle = x
             servos["middle"].angle = x
