@@ -26,7 +26,7 @@ def finger_channels(driver):
         "middle": servo.Servo(driver.channels[1], min_pulse = MIN_PULSE,  max_pulse = MAX_PULSE),
         "ring": servo.Servo(driver.channels[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
         "pinky": servo.Servo(driver.channels[3], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
-        "thumb": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = 2600)
+        "thumb": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
     }
     return fingers
 
@@ -34,7 +34,7 @@ def close_hand(servos):
     global current_state
 
     if current_state == "peace":
-        for x in range(162, -2, -2):
+        for x in range(0, 162, -2):
             servos["pointer"].angle = x
             servos["middle"].angle = x
             time.sleep(0.02)
