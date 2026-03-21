@@ -47,6 +47,13 @@ def close_hand(servos):
 def open_hand(servos):
     global current_state
 
+    if current_state == "peace":
+        for x in range(162, -2, -2):
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+
     if current_state != "open":
         for x in range(160, -2, -2):
             servos["pointer"].angle = x
