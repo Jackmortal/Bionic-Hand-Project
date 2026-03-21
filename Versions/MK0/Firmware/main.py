@@ -13,6 +13,8 @@ def main():
             open_hand(servos)
         elif button == 'c':
             peace_sign(servos)
+        elif button == 'd':
+            thumbs_up(servos)
         elif button == 'x':
             break
 
