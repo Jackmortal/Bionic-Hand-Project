@@ -26,7 +26,7 @@ def finger_channels(driver):
         "middle": servo.Servo(driver.channels[1], min_pulse = MIN_PULSE,  max_pulse = MAX_PULSE),
         "ring": servo.Servo(driver.channels[4], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
         "pinky": servo.Servo(driver.channels[3], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE),
-        "thumb": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = MAX_PULSE)
+        "thumb": servo.Servo(driver.channels[2], min_pulse = MIN_PULSE, max_pulse = 2600)
     }
     return fingers
 
