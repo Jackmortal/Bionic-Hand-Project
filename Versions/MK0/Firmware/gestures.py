@@ -44,7 +44,7 @@ def close_hand(servos):
             servos["thumb"].angle = x
             time.sleep(0.02)
 
-    elif current_state == "pointer":
+    elif current_state == "pointing":
         for x in range(0, 162, 2):
             servos["pointer"].angle = x
             time.sleep(0.02)
@@ -78,7 +78,7 @@ def open_hand(servos):
             servos["pinky"].angle = x
             time.sleep(0.02)
 
-    elif current_state == "pointer":
+    elif current_state == "pointing":
         for x in range(162, -2, -2):
             servos["middle"].angle = x
             servos["ring"].angle = x
@@ -106,7 +106,7 @@ def peace_sign(servos):
             servos["middle"].angle = x
             servos["thumb"].angle = 162 - x
 
-    elif current_state == "pointer":
+    elif current_state == "pointing":
         for x in range(162, -2, -2):
             servo["middle"].angle = x
             time.sleep(0.02)
