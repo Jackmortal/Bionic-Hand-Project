@@ -44,6 +44,11 @@ def close_hand(servos):
             servos["thumb"].angle = x
             time.sleep(0.02)
 
+    elif current_state == "pointer":
+        for x in range(0, 162, 2):
+            servos["pointer"].angle = x
+            time.sleep(0.02)
+
     elif current_state != "closed":
         for x in range(0, 162, 2):
             servos["pointer"].angle = x
@@ -73,6 +78,14 @@ def open_hand(servos):
             servos["pinky"].angle = x
             time.sleep(0.02)
 
+    elif current_state == "pointer":
+        for x in range(162, -2, -2):
+            servos["middle"].angle = x
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+            time.sleep(0.02)
+
     elif current_state != "open":
         for x in range(160, -2, -2):
             servos["pointer"].angle = x
@@ -87,19 +100,24 @@ def open_hand(servos):
 def peace_sign(servos):
     global current_state
 
+    if current_state == "thumb":
+        for x in range(162, -2, -2):
+            servos["pointer"].angle = x
+            servos["middle"].angle = x
+            servos["thumb"].angle = 162 - x
+
+    elif current_state == "pointer":
+        for x in range(162, -2, -2):
+            servo["middle"].angle = x
+            time.sleep(0.02)
+
     # Closes the ring, pinky, and thumb.
-    if current_state == "open":
+    elif current_state == "open":
         for x in range(0, 162, 2):
             servos["ring"].angle = x
             servos["pinky"].angle = x
             servos["thumb"].angle = x
             time.sleep(0.02)
-
-    elif current_state == "thumb":
-        for x in range(162, -2, -2):
-            servos["pointer"].angle = x
-            servos["middle"].angle = x
-            servos["thumb"].angle = 162 - x
     
     # Opens the pointer and middle fingers.
     elif current_state == "closed":
@@ -122,6 +140,12 @@ def thumbs_up(servos):
             servos["thumb"].angle = 160 - x
             time.sleep(0.02)
 
+    elif current_state == "pointing":
+        for x in range(0, 162, 2):
+            servos["pointing"].angle = x
+            servos["thumb"].angle = 162 - x
+            time.sleep(0.02)
+
     elif current_state == "closed":
         for x in range(162, -2, -2):
             servos["thumb"].angle = x
@@ -137,6 +161,32 @@ def thumbs_up(servos):
 
     current_state = "thumb"
 
-#def pointing(servos):
+def pointing(servos):
+    global current_state
+
+    if current_state == "peace":
+        for x in range(0, 162, 2):
+            servos["middle"].angle = x
+            time.sleep(0.02)
+
+    elif current_state == "thumb":
+        for x in range(162, -2, -2):
+            servos["pointer"].angle = x
+            servos["thumb"].angle = 162 - x
+            time.sleep(0.02)
+
+    elif current_state == "closed":
+        for x in range(162, -2, -2):
+            servos["pointer"].angle = x
+            time.sleep(0.02)
+
+    elif current_state == "open":
+        for x in range(0, 162, 2):
+            servos["middle"].angle = x
+            servos["ring"].angle = x
+            servos["pinky"].angle = x
+            servos["thumb"].angle = x
+
+    current_state = "pointing"
 
 #def rock_on(servos):
