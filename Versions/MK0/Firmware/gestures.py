@@ -121,7 +121,7 @@ def peace_sign(servos):
 
     elif current_state == "pointing":
         for x in range(162, -2, -2):
-            servo["middle"].angle = x
+            servos["middle"].angle = x
             time.sleep(0.02)
 
     elif current_state == "rock":
