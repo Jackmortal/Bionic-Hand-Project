@@ -142,7 +142,7 @@ def thumbs_up(servos):
 
     elif current_state == "pointing":
         for x in range(0, 162, 2):
-            servos["pointing"].angle = x
+            servos["pointer"].angle = x
             servos["thumb"].angle = 162 - x
             time.sleep(0.02)
 
