@@ -4,9 +4,9 @@ def main():
     servos = setup()
 
     while True:
-        print("Enter a keybind: \n")
         print("Close Hand = a, Open Hand = b, Peace Sign = c, Thumbs up = d, "
         " Pointing = e, Rock On = f, Exit = x")
+        print("Enter a keybind: \n")
         button = input()
         if button == 'a':
             close_hand(servos)
