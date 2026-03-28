@@ -233,7 +233,7 @@ def rock_on(servos):
             time.sleep(0.02)
 
     elif current_state == "thumb":
-        for x in range(0, 162, 2):
+        for x in range(162, -2, -2):
             servos["pointer"].angle = x
             servos["pinky"].angle = x
             time.sleep(0.02)
