@@ -2,7 +2,7 @@
 Bionic hand project starting with 5 degrees of freedom (DOF) and basic object detection using python and AI/ML.
 Future versions will expand on motion capabilities and implement more advanced AI for object detection and manipulation.
 
-##Versions
+## Versions
 The Versions folder contains all the different iterations of my bionic hand over time. 
 Each version (e.g., MK0, MK1) includes important information specific to that iteration such as:
 
