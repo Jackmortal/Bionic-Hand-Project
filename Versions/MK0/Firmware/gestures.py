@@ -252,7 +252,7 @@ def rock_on(servos):
     elif current_state == "closed":
         for x in range(162, -2, -2):
             servos["pointer"].angle = x
-            servos["pointer"].angle = x
+            servos["pinky"].angle = x
             servos["thumb"].angle = x
             time.sleep(0.02)
 
