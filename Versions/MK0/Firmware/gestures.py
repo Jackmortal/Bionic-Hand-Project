@@ -52,7 +52,7 @@ def close_hand(servos):
     elif current_state == "rock":
         for x in range(0, 162, 2):
             servos["pointer"].angle = x
-            servos["ring"].angle = x
+            servos["pinky"].angle = x
             servos["thumb"].angle = x
             time.sleep(0.02)
 
