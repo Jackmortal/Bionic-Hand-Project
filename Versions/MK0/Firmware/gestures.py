@@ -118,6 +118,7 @@ def peace_sign(servos):
             servos["pointer"].angle = x
             servos["middle"].angle = x
             servos["thumb"].angle = 162 - x
+            time.sleep(0.02)
 
     elif current_state == "pointing":
         for x in range(162, -2, -2):
