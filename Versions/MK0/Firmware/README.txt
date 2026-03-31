@@ -21,4 +21,4 @@ Create a `main.py` alongside it to bind keyboard keys to each gesture.
 Implement OpenCV to capture my hand gestures from a camera feed.
 
 ### Step 3 - Gesture Recognition
-Implement TensorFlow Lite to identify captured gestures and run the gestures automatically on the hand without keyboard input.
+Implement MediaPipe to identify captured gestures and run the gestures automatically on the hand without keyboard input.
