@@ -9,7 +9,8 @@ Each version (e.g., MK0, MK1) includes important information specific to that it
 - **Parts** - Lists all the parts used for this version, such as servos, tendons, and screws.
 - **Firmware** - Code used to control the bionic hand.
 - **Electronics** - Wiring diagrams, schematics, and connection details.
-- **Images** - Photos and Videos showing assembly and tests.
+- **Images** - Photos showing assembly and tests.
+- **Videos** - Links to videos containing demos and tests.
 
 ## MK0 GIF
 ![20260328_172912(1)](https://github.com/user-attachments/assets/ec89d633-b630-447d-a2c5-fabca8c10cfa)
