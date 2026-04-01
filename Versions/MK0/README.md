@@ -18,7 +18,7 @@ See Images folder for wiring and build layout.
 See Videos folder for links to tests and demos.
 
 ## Demo
-Link to YouTube video
+[Watch on YouTube](https://www.youtube.com/watch?v=RLUshVP_gwQ) - Keyboard input
 
 ## Challenges
 
