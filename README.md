@@ -8,7 +8,7 @@ Each version (e.g., MK0, MK1) includes important information specific to that it
 
 - **BOM** - Bill of materials such as servos, tools, screws, etc.
 - **Firmware** - Code used to control the bionic hand.
-- **Electronics** - Wiring diagrams, schematics, and connection details.
+- **Requirements** - software dependencies for easy replication.
 - **Images** - Photos showing assembly and tests.
 - **Videos** - Links to videos containing demos and tests.
 
