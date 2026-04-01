@@ -1,4 +1,5 @@
-# MK0 - Ada Hand [Open Source](https://github.com/Open-Bionics/Ada_3D_model_files/tree/master/STLs/Right%20Hand) (5 DOF)
+# MK0 - Ada Hand (5 DOF)
+[Open Source](https://github.com/Open-Bionics/Ada_3D_model_files/tree/master/STLs/Right%20Hand)
 
 Brief description of what MK0 is and what was achieved including challenges faced.
 
