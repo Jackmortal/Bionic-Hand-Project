@@ -4,7 +4,7 @@ from picamera2 import Picamera2
 # Initializes the camera object, sets the camera configurations, passes the
 # configurations into the camera object, and starts the camera.
 picam = Picamera2()
-config = picam.create_preview_configuration({'size': (1920,1080), 'format': 'RGB888'})
+config = picam.create_preview_configuration({'size': (1920,1080), 'format': 'RGB888'}, transform=Transform(hflip=1))
 picam.configure(config)
 picam.start()
 
