@@ -1,7 +1,7 @@
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from camera import 
+from camera import setup
 
 # To pass filepath containing pretrained gesture models.
 BaseOptions = mp.taks.BaseOptions
@@ -36,4 +36,4 @@ settings = GestureSettings(base_options = BaseOptions('gesture_recognizer.task')
 # Passes the settings into the GestureRecognizer and gives the 
 # alias 'recognizer'
 with GestureRecognizer.create_from_options(settings) as recognizer:
-
+    frame = setup()
