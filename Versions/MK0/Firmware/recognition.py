@@ -37,3 +37,8 @@ settings = GestureSettings(base_options = BaseOptions('gesture_recognizer.task')
 # alias 'recognizer'
 with GestureRecognizer.create_from_options(settings) as recognizer:
     frame = setup()
+
+    # Converts the frame from raspberry camera to a MediaPipe image.
+    mp_frame = mp.Image(frame)
+    # Runs the recognizer with the converted MediaPipe frame.
+    recognized_frame = recognizer.recognize_async(mp_frame)
