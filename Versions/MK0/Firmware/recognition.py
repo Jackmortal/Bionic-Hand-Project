@@ -1,7 +1,9 @@
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from camera import setup
+from camera import frame_stream
+
+current_state = "open"
 
 # To pass filepath containing pretrained gesture models.
 BaseOptions = mp.tasks.BaseOptions
@@ -23,8 +25,11 @@ VisionMode = mp.tasks.vision.RunningMode
 # Checks if a gesture was detected and prints detected hand.
 # First index for num hands, second index for highest likelihood gesture.
 def print_result(result: GestureResults, output_image: mp.Image, timestamp_ms: int):
+    global current_state
+    
     if result.gestures:
         print(result.gestures[0][0].category_name)
+        current_state = result.gestures[0][0].category_name
 
 # Sets the settings for the recognizer.
 # Such as, filepath to models, VisionMode, and print_result.
@@ -32,13 +37,17 @@ settings = GestureSettings(base_options = BaseOptions('gesture_recognizer.task')
                            running_mode = VisionMode.LIVE_STREAM,
                            result_callback = print_result)
 
-# Using with makes it so that I dont need to close the recognizer.
+# Using with makes it so that I dont need to manually close the recognizer.
 # Passes the settings into the GestureRecognizer and gives the 
 # alias 'recognizer'
-with GestureRecognizer.create_from_options(settings) as recognizer:
-    frame = setup()
+def recognize_frame(settings):
+    with GestureRecognizer.create_from_options(settings) as recognizer:
+        f = frame_stream() # Initialize/Declare the camera function.
 
-    # Converts the frame from raspberry camera to a MediaPipe image.
-    mp_frame = mp.Image(frame)
-    # Runs the recognizer with the converted MediaPipe frame.
-    recognized_frame = recognizer.recognize_async(mp_frame)
+        while True:
+            frame = next(f) # Grab the frame.
+
+            # Converts the frame from raspberry camera to a MediaPipe image.
+            mp_frame = mp.Image(image_format = mp.ImageFormat.SRGB, data = frame)
+            # Runs the recognizer with the converted MediaPipe frame.
+            recognizer.recognize_async(mp_frame, frame_timestamp_ms)
