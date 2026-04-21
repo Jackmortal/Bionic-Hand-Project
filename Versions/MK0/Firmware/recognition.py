@@ -3,7 +3,7 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from camera import frame_stream
 
-current_state = "open"
+current_state = "None"
 
 # To pass filepath containing pretrained gesture models.
 BaseOptions = mp.tasks.BaseOptions
