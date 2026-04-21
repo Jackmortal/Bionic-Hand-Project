@@ -1,4 +1,5 @@
 import mediapipe as mp
+import time
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 from camera import frame_stream
@@ -46,6 +47,10 @@ def recognize_frame(settings):
 
         while True:
             frame = next(f) # Grab the frame.
+            
+            # Get the Unix epoch time for the frame, convert to milliseconds, 
+            # convert to an int.
+            frame_timestamp_ms = int(time.time() * 1000)
 
             # Converts the frame from raspberry camera to a MediaPipe image.
             mp_frame = mp.Image(image_format = mp.ImageFormat.SRGB, data = frame)
