@@ -1,22 +1,25 @@
 from gestures import *
-from recognition import current_state
+import recognition
 
 def main():
     servos = setup()
 
     while True:
-        if current_state == 'None':
+        state = recognition.state
+        if state == 'None':
             break
-        elif current_state == 'Closed_Fist':
+        elif state == 'Closed_Fist':
             close_hand(servos)
-        elif current_state == 'Open_palm':
+        elif state == 'Open_palm':
             open_hand(servos)
-        elif current_state == 'Victory':
+        elif state == 'Victory':
             peace_sign(servos)
-        elif current_state == 'Thumb_Up':
+        elif state == 'Thumb_Up':
             thumbs_up(servos)
-        elif current_state == 'Pointing_Up':
+        elif state == 'Pointing_Up':
             pointing(servos)
+        elif state == 'ILoveYou':
+            rock_on(servos)
 
 # main_guard
 if __name__ == "__main__":
