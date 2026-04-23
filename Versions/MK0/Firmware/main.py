@@ -1,11 +1,11 @@
 from gestures import *
-from recognition import recognize_frame, current_state
+from recognition import recognize_frame, settings, current_state
 import threading
 
 def main():
     servos = setup()
 
-    threading.Thread(target = recognize_frame).start()
+    threading.Thread(target = recognize_frame, args=(settings)).start()
 
     while True:
         if current_state == 'None':
