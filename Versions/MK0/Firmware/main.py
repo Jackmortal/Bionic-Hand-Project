@@ -14,7 +14,7 @@ def main():
         state = recognition.current_state
         print(state)
         if state == 'None':
-            break
+            continue
         elif state == 'Closed_Fist':
             close_hand(servos)
         elif state == 'Open_palm':
