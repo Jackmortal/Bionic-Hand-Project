@@ -2,7 +2,7 @@ import mediapipe as mp
 import time
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from camera import frame_stream
+from camera import frame_stream, setup, picam
 
 current_state = "None"
 
@@ -42,8 +42,10 @@ settings = GestureSettings(base_options = BaseOptions('gesture_recognizer.task')
 # Passes the settings into the GestureRecognizer and gives the 
 # alias 'recognizer'
 def recognize_frame(settings):
+    setup()
+
     with GestureRecognizer.create_from_options(settings) as recognizer:
-        f = frame_stream() # Initialize/Declare the camera function.
+        f = frame_stream(picam) # Initialize/Declare the camera function.
 
         while True:
             frame = next(f) # Grab the frame.
