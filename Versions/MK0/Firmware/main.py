@@ -12,6 +12,7 @@ def main():
 
     while True:
         state = recognition.current_state
+        print(state)
         if state == 'None':
             break
         elif state == 'Closed_Fist':
