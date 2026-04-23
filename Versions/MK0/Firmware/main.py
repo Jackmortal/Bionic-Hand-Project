@@ -5,7 +5,7 @@ def main():
     servos = setup()
 
     while True:
-        state = recognition.state
+        state = recognition.current_state
         if state == 'None':
             break
         elif state == 'Closed_Fist':
