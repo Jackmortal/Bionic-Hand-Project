@@ -5,13 +5,13 @@ import threading
 
 def main():
     servos = setup()
-    state = recognition.current_state
 
     # Creates a thread for recognize_frame so that new states are captured
     # from its loop, while also looping the gesture control in main.
     threading.Thread(target = recognize_frame, args=(settings,)).start()
 
     while True:
+        state = recognition.current_state
         if state == 'None':
             break
         elif state == 'Closed_Fist':
