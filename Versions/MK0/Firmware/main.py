@@ -1,11 +1,11 @@
 from gestures import *
-from recognition import recognize_frame, settings, state
+from recognition import recognize_frame, settings
 import recognition
 import threading
 
 def main():
     servos = setup()
-    state = recognition.state
+    state = recognition.current_state
 
     # Creates a thread for recognize_frame so that new states are captured
     # from its loop, while also looping the gesture control in main.
