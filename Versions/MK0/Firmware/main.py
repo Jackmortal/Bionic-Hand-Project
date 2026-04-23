@@ -1,24 +1,26 @@
 from gestures import *
-import recognition
+from recognition import recognize_frame, current_state
+import threading
 
 def main():
     servos = setup()
 
+    threading.Thread(target = recognize_frame).start()
+
     while True:
-        state = recognition.current_state
-        if state == 'None':
+        if current_state == 'None':
             break
-        elif state == 'Closed_Fist':
+        elif current_state == 'Closed_Fist':
             close_hand(servos)
-        elif state == 'Open_palm':
+        elif current_state == 'Open_palm':
             open_hand(servos)
-        elif state == 'Victory':
+        elif current_state == 'Victory':
             peace_sign(servos)
-        elif state == 'Thumb_Up':
+        elif current_state == 'Thumb_Up':
             thumbs_up(servos)
-        elif state == 'Pointing_Up':
+        elif current_state == 'Pointing_Up':
             pointing(servos)
-        elif state == 'ILoveYou':
+        elif current_state == 'ILoveYou':
             rock_on(servos)
 
 # main_guard
