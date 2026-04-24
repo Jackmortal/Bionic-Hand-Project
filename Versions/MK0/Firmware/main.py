@@ -17,7 +17,7 @@ def main():
             continue
         elif state == 'Closed_Fist':
             close_hand(servos)
-        elif state == 'Open_palm':
+        elif state == 'Open_Palm':
             open_hand(servos)
         elif state == 'Victory':
             peace_sign(servos)
