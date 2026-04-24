@@ -11,9 +11,13 @@ def main():
     # from its loop, while also looping the gesture control in main.
     threading.Thread(target = recognize_frame, args=(settings,)).start()
 
+    prev_state = 'None'
+
     while True:
         state = recognition.current_state
-        print(state)
+
+        if state != prev_state:
+            print(state)
 
         # If the keyboard button 'd' was pressed end camera and MediaPipe.
         if camera.End_Live == 'yes':
@@ -33,6 +37,9 @@ def main():
             pointing(servos)
         elif state == 'ILoveYou':
             rock_on(servos)
+
+        # Make the prev_state equal to the gesture before state is changed.
+        prev_state = state
 
 # main_guard
 if __name__ == "__main__":
