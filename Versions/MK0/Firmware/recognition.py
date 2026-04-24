@@ -29,7 +29,6 @@ def print_result(result: GestureResults, output_image: mp.Image, timestamp_ms: i
     global current_state
     
     if result.gestures:
-        print(result.gestures[0][0].category_name)
         current_state = result.gestures[0][0].category_name
 
 # Sets the settings for the recognizer.

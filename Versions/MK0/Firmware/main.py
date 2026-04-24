@@ -13,6 +13,7 @@ def main():
 
     while True:
         state = recognition.current_state
+        print(state)
 
         # If the keyboard button 'd' was pressed end camera and MediaPipe.
         if camera.End_Live == 'yes':
