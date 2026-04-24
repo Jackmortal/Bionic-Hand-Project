@@ -1,6 +1,7 @@
 from gestures import *
 from recognition import recognize_frame, settings
 import recognition
+import camera
 import threading
 
 def main():
@@ -12,7 +13,11 @@ def main():
 
     while True:
         state = recognition.current_state
-        print(state)
+
+        # If the keyboard button 'd' was pressed end camera and MediaPipe.
+        if camera.End_Live == 'yes':
+            break
+
         if state == 'None':
             continue
         elif state == 'Closed_Fist':
