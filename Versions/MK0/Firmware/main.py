@@ -11,7 +11,7 @@ def main():
     # from its loop, while also looping the gesture control in main.
     threading.Thread(target = recognize_frame, args=(settings,)).start()
 
-    prev_state = 'None'
+    prev_state = 'Nothing'
 
     while True:
         state = recognition.current_state
