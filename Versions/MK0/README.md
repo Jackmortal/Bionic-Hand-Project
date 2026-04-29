@@ -8,9 +8,6 @@ See BOM folder for full parts list and costs.
 ## Code
 See Firmware folder. Built with Python, OpenCV, MediaPipe on Raspberry Pi 5.
 
-## Requirements
-See Requirements folder for software dependencies.
-
 ## Images
 See Images folder for wiring and build layout.
 
@@ -26,5 +23,5 @@ See Videos folder for links to tests and demos.
 ## Lessons Learned
 
 
-## What Changed for MK1
+## What will change for MK1
 
