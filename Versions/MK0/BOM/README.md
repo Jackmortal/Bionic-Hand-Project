@@ -21,6 +21,8 @@ to build the MK0 bionic hand prototype.
 - **Raspberry Pi Camera Module V2-8 Megapixel,1080p**
   https://www.amazon.com/dp/B01ER2SKFS
 
+---
+
 ## Power & Wiring
 - **Aclorol 5V Power Supply (70A, 350W)**  
   https://www.amazon.com/dp/B09J2BFT93?th=1  
@@ -60,7 +62,7 @@ to build the MK0 bionic hand prototype.
 - **M3 Small Metric Screws with Nuts**
   https://www.amazon.com/dp/B0CMQG542V?th=1
 
-- 
+---
 
 ## Mechanical / Tendon System
 - **Fishing Line (20 lb test)**  
@@ -88,6 +90,8 @@ to build the MK0 bionic hand prototype.
 - **Raspberry pi camera mount**
   https://www.thingiverse.com/thing:274111
 
+---
+
 ## Tools
 - **Wire Stripper / Crimping Tool**  
   https://www.amazon.com/dp/B073YG65N2
@@ -100,6 +104,8 @@ to build the MK0 bionic hand prototype.
 
 - **Soldering Iron Kit**
   https://www.amazon.com/dp/B08R3515SF?th=1
+
+---
 
 
 **Total: $504** (Not including Tools)
